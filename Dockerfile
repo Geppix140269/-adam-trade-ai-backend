@@ -34,8 +34,8 @@ ollama serve &\n\
 OLLAMA_PID=$!\n\
 echo "Ollama PID: $OLLAMA_PID"\n\
 sleep 5\n\
-echo "Pulling Mistral model..."\n\
-ollama pull mistral || echo "Model pull failed or already exists"\n\
+echo "Pulling Phi-3 Mini model..."\n\
+ollama pull phi3:mini || echo "Model pull failed or already exists"\n\
 echo "Starting Node.js API server..."\n\
 exec node server.js\n\
 ' > /app/start.sh && chmod +x /app/start.sh

@@ -91,7 +91,7 @@ app.post('/api/generate', generateLimiter, async (req, res) => {
   }
 
   // Validate model name (prevent injection)
-  const allowedModels = ['mistral', 'llama3.1', 'llama2', 'codellama'];
+  const allowedModels = ['phi3', 'mistral', 'llama3.1', 'llama2', 'codellama'];
   if (!allowedModels.some(m => model.includes(m))) {
     return res.status(400).json({
       error: 'Invalid model name'
@@ -141,7 +141,7 @@ app.post('/api/chat', generateLimiter, async (req, res) => {
   }
 
   // Validate model name
-  const allowedModels = ['mistral', 'llama3.1', 'llama2', 'codellama'];
+  const allowedModels = ['phi3', 'mistral', 'llama3.1', 'llama2', 'codellama'];
   if (!allowedModels.some(m => model.includes(m))) {
     return res.status(400).json({
       error: 'Invalid model name'
