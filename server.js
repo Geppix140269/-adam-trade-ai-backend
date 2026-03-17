@@ -13,6 +13,9 @@ const OLLAMA_URL = process.env.OLLAMA_URL || 'http://localhost:11434';
 // MIDDLEWARE
 // ============================================
 
+// Trust Railway proxy (required for rate limiting and CORS)
+app.set('trust proxy', 1);
+
 // Security headers
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
