@@ -1,186 +1,144 @@
-# ADAM Trade AI - Backend Server
+# ADAM Trade AI - Backend Server (OpenAI Version)
 
-Backend API service for the ADAM Trade AI platform. Provides a secure, scalable API that interfaces with Ollama for AI-powered educational features.
+Lightweight backend API for the ADAM Trade AI platform using OpenAI's GPT-3.5-turbo.
+
+## Why OpenAI Instead of Ollama?
+
+- **No deployment issues** - Small Node.js app, deploys anywhere
+- **Reliable** - OpenAI's infrastructure, no maintenance
+- **Cost-effective** - ~$4-5/month with rate limiting
+- **Works for everyone** - No user installation required
 
 ## Features
 
-- 🔒 **Secure API** with CORS, Helmet security headers, and rate limiting
-- 🤖 **Ollama Integration** for local AI model inference
-- 🚀 **Production Ready** with health checks and error handling
-- 📊 **Rate Limiting** to prevent abuse (100 req/15min general, 20 req/15min for AI)
-- 🌍 **CORS Support** for frontend integration
-- 📝 **Comprehensive Logging** for debugging and monitoring
+- 🤖 **OpenAI GPT-3.5-turbo** for AI responses
+- 🔒 **Secure** with CORS, Helmet, and rate limiting
+- 💰 **Budget-friendly** - Strict rate limits keep costs under $5/month
+- 🚀 **Easy deployment** - No Docker, works on Railway/Render free tier
 
-## API Endpoints
+## Cost Control
 
-### Health & Status
+**Rate Limits:**
+- 50 requests per 15 minutes (general)
+- 10 AI requests per hour per IP (strict)
+- Max 500 tokens per response
 
-**GET /**
-- Health check endpoint
-- Returns: Service status and version
+**Expected costs:**
+- ~3,000 AI requests/month = ~$4/month
+- Well under $5/month budget
 
-**GET /api/health**
-- Ollama connection status
-- Returns: Connection status and available models
+## Setup
 
-**GET /api/models**
-- List available Ollama models
-- Returns: Array of installed models
+### 1. Get OpenAI API Key
 
-### AI Generation
+1. Go to https://platform.openai.com/signup
+2. Create account (free)
+3. Go to https://platform.openai.com/api-keys
+4. Click "Create new secret key"
+5. Copy the key (starts with `sk-`)
 
-**POST /api/generate**
-- Generate AI responses
-- Body: `{ model: string, prompt: string, system?: string }`
-- Rate limit: 20 requests per 15 minutes
-- Max prompt length: 4000 characters
+### 2. Configure Environment
 
-**POST /api/chat**
-- Conversational AI chat
-- Body: `{ model: string, messages: Array<{role: string, content: string}> }`
-- Rate limit: 20 requests per 15 minutes
-
-## Environment Variables
-
-Create a `.env` file (see `.env.example`):
-
+Create `.env` file:
 ```env
 PORT=3000
-OLLAMA_URL=http://localhost:11434
-ALLOWED_ORIGINS=*
+OPENAI_API_KEY=sk-your-actual-key-here
 NODE_ENV=production
 ```
 
-## Local Development
-
-### Prerequisites
-- Node.js 18+
-- Ollama installed locally
-
-### Setup
+### 3. Install & Run Locally
 
 ```bash
-# Install dependencies
 npm install
-
-# Start Ollama (in separate terminal)
-ollama serve
-
-# Pull required model
-ollama pull mistral
-
-# Start the server
 npm start
-
-# Or with auto-reload
-npm run dev
 ```
 
-The server will run on `http://localhost:3000`
+Visit: http://localhost:3000/api/health
 
-## Deployment to Railway
+## Deploy to Railway
 
-### Option 1: Using Railway CLI
+1. **Push to GitHub** (already done)
 
-```bash
-# Install Railway CLI
-npm i -g @railway/cli
+2. **Go to Railway:**
+   - Visit https://railway.app
+   - Click "New Project"
+   - Select "Deploy from GitHub repo"
+   - Choose: `-adam-trade-ai-backend`
 
-# Login
-railway login
+3. **Add Environment Variable:**
+   - Click on your service
+   - Go to "Variables" tab
+   - Click "New Variable"
+   - Name: `OPENAI_API_KEY`
+   - Value: `sk-your-actual-key-here`
+   - Click "Add"
 
-# Initialize project
-railway init
+4. **Deploy:**
+   - Railway will auto-deploy
+   - Wait ~1-2 minutes
+   - Generate domain (Settings → Networking → Generate Domain)
 
-# Deploy
-railway up
-```
+5. **Test:**
+   - Visit: `https://your-url.up.railway.app/api/health`
+   - Should show: `"status": "connected"`
 
-### Option 2: Using GitHub Integration
+## API Endpoints
 
-1. Push code to GitHub repository
-2. Go to [railway.app](https://railway.app)
-3. Click "New Project" → "Deploy from GitHub repo"
-4. Select your backend repository
-5. Railway will auto-detect the Dockerfile and deploy
+### GET /api/health
+Health check - returns connection status
 
-### Post-Deployment
-
-1. Wait for Ollama model to download (first deployment takes 5-10 minutes)
-2. Copy your Railway URL (e.g., `https://your-app.up.railway.app`)
-3. Update frontend to use this URL instead of `http://localhost:11434`
-
-## Docker Deployment
-
-```bash
-# Build
-docker build -t adam-trade-ai-backend .
-
-# Run
-docker run -p 3000:3000 adam-trade-ai-backend
-
-# With environment variables
-docker run -p 3000:3000 \
-  -e ALLOWED_ORIGINS="https://your-frontend.netlify.app" \
-  adam-trade-ai-backend
-```
-
-## Security Considerations
-
-- ✅ Rate limiting prevents abuse
-- ✅ CORS configured for trusted origins
-- ✅ Helmet security headers enabled
-- ✅ Request validation (model names, prompt length)
-- ✅ No sensitive data in responses
-- ⚠️ Consider adding authentication for production use
-- ⚠️ Update `ALLOWED_ORIGINS` to your actual frontend URL
-
-## Monitoring
-
-Check service health:
-```bash
-curl https://your-app.up.railway.app/api/health
-```
-
-Expected response:
+### POST /api/generate
+Generate AI text response
 ```json
 {
-  "status": "connected",
-  "models": [...],
-  "ollamaUrl": "http://localhost:11434"
+  "prompt": "What are Incoterms?",
+  "system": "You are a helpful tutor..."
 }
 ```
 
+### POST /api/chat
+Chat interface with message history
+```json
+{
+  "messages": [
+    {"role": "system", "content": "You are a tutor..."},
+    {"role": "user", "content": "Explain FOB"}
+  ]
+}
+```
+
+### GET /api/models
+List available models
+
 ## Troubleshooting
 
-**Ollama not responding:**
-- Check if Ollama service is running
-- Verify `OLLAMA_URL` environment variable
-- Check Docker logs: `docker logs <container-id>`
+**"OpenAI API key not configured"**
+- Add OPENAI_API_KEY environment variable in Railway
 
-**Model not found:**
-- Ensure model is pulled: `ollama pull mistral`
-- Check available models: `GET /api/models`
+**"AI request limit reached"**
+- Rate limit hit - wait 1 hour or adjust limits in server-openai.js
 
-**Rate limit errors:**
-- Wait 15 minutes for limit reset
-- Adjust rate limits in `server.js` if needed
+**CORS errors**
+- Check allowed origins in server-openai.js matches your Netlify URL
 
-## Cost Estimation (Railway)
+## Cost Monitoring
 
-- **Startup Plan:** $5/month for 500 hours
-- **Developer Plan:** $10/month for 1000 hours
-- Estimated usage: ~$10-20/month for moderate traffic
+Monitor your OpenAI usage:
+1. Go to https://platform.openai.com/usage
+2. Check daily/monthly usage
+3. Set up billing alerts
 
-## Support
+## Reverting to Ollama
 
-For issues, check:
-- Railway logs: `railway logs`
-- GitHub Issues: [Repository Issues](https://github.com/Geppix140269/adam-trade-ai-backend/issues)
+If you want to go back to local Ollama:
+```bash
+# Restore Dockerfile
+mv Dockerfile.ollama.bak Dockerfile
+
+# Use old server
+npm run start:ollama
+```
 
 ## License
 
 MIT
-
----
-*Last updated: 2026-03-17*

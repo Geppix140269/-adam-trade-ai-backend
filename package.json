@@ -2,10 +2,11 @@
   "name": "adam-trade-ai-backend",
   "version": "1.0.0",
   "description": "Backend API server for ADAM Trade AI with Ollama integration",
-  "main": "server.js",
+  "main": "server-openai.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server-openai.js",
+    "dev": "nodemon server-openai.js",
+    "start:ollama": "node server.js"
   },
   "keywords": ["ollama", "ai", "education", "trade"],
   "author": "",
