@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const axios = require('axios');
+const knowledgeManager = require('./knowledge-manager');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -95,6 +96,9 @@ app.post('/api/generate', aiLimiter, async (req, res) => {
   }
 
   try {
+    // Get relevant ADAM course content for this question
+    const adamContext = knowledgeManager.getContext(prompt);
+
     const response = await axios.post(
       'https://api.openai.com/v1/chat/completions',
       {
@@ -102,7 +106,7 @@ app.post('/api/generate', aiLimiter, async (req, res) => {
         messages: [
           {
             role: 'system',
-            content: system || 'You are a helpful AI tutor specializing in global trade, international commerce, and business.'
+            content: system || adamContext
           },
           {
             role: 'user',

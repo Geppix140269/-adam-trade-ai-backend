@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "name": "ADAM Global Trade Academy",
+    "version": "1.0",
+    "lastUpdated": "2026-03-18",
+    "description": "Comprehensive global trade education content"
+  },
+  "methodology": {
+    "title": "ADAM Teaching Methodology",
+    "description": "Our unique approach to global trade education",
+    "principles": [
+      "Practice-based learning with real-world examples",
+      "Step-by-step progression from fundamentals to advanced",
+      "Focus on practical application over theory",
+      "Interactive engagement and immediate feedback"
+    ]
+  },
+  "modules": [
+    {
+      "id": 1,
+      "title": "Introduction to Global Trade",
+      "description": "Fundamentals of international commerce",
+      "keyTopics": [
+        "What is global trade",
+        "Benefits of international trade",
+        "Major trade routes and hubs",
+        "Key players in global trade"
+      ],
+      "content": "PLACEHOLDER: Add your module 1 content here. Include definitions, explanations, examples, and key concepts.",
+      "examples": [
+        {
+          "title": "Example: Trade Route Analysis",
+          "content": "PLACEHOLDER: Add specific examples from your course"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why is global trade important?",
+          "answer": "PLACEHOLDER: Add your answer"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Incoterms & Contracts",
+      "description": "Trade terms and legal frameworks",
+      "keyTopics": [
+        "Understanding Incoterms 2020",
+        "FOB, CIF, EXW explained",
+        "Contract essentials",
+        "Risk and responsibility transfer"
+      ],
+      "content": "Incoterms (International Commercial Terms) are standardized trade terms published by the International Chamber of Commerce (ICC). They define the responsibilities of buyers and sellers in international trade transactions. The latest version is Incoterms 2020. Key Incoterms include: EXW (Ex Works) where the seller makes goods available at their premises; FOB (Free On Board) where the seller delivers goods on board the vessel; CIF (Cost Insurance and Freight) where the seller pays for shipping and insurance to the destination port; and DDP (Delivered Duty Paid) where the seller handles all costs and risks until delivery.",
+      "examples": [
+        {
+          "title": "Example: FOB vs CIF",
+          "content": "FOB (Free On Board): The seller delivers goods onto the ship at the port of origin. The buyer assumes all costs and risks from that point. Example: If you buy goods FOB Shanghai, once they're on the ship in Shanghai, you're responsible for shipping costs and risks. CIF (Cost, Insurance, and Freight): The seller pays for shipping and insurance to the destination port. The buyer takes ownership once goods arrive. Example: Buying CIF Rotterdam means the seller handles shipping and insurance to Rotterdam, but you handle customs and inland transport from there."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is FOB?",
+          "answer": "FOB (Free On Board) is an Incoterm where the seller delivers goods on board the vessel at the port of shipment. Once the goods pass the ship's rail, the buyer assumes all costs and risks. This term is commonly used in ocean freight."
+        },
+        {
+          "question": "When should I use CIF?",
+          "answer": "Use CIF (Cost, Insurance, and Freight) when you want the seller to handle ocean freight and insurance to your destination port. It's ideal for buyers who prefer the seller to arrange shipping, but want to handle customs clearance and inland transport themselves. CIF provides more convenience but the buyer still needs to understand the insurance coverage provided."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Customs & Compliance",
+      "description": "Regulations and documentation",
+      "keyTopics": [
+        "Import/export documentation",
+        "Customs procedures",
+        "Compliance requirements",
+        "HS codes and tariffs"
+      ],
+      "content": "PLACEHOLDER: Add your customs content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 4,
+      "title": "Logistics & Shipping",
+      "description": "Transportation and warehousing",
+      "keyTopics": [
+        "Shipping methods",
+        "Freight forwarding",
+        "Supply chain management",
+        "Warehousing solutions"
+      ],
+      "content": "PLACEHOLDER: Add your logistics content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 5,
+      "title": "Trade Finance",
+      "description": "Payments and financial instruments",
+      "keyTopics": [
+        "Letters of credit",
+        "Payment terms",
+        "Trade insurance",
+        "Currency exchange"
+      ],
+      "content": "PLACEHOLDER: Add your finance content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 6,
+      "title": "Risk Management",
+      "description": "Insurance and mitigation strategies",
+      "keyTopics": [
+        "Types of trade risks",
+        "Insurance options",
+        "Risk mitigation strategies",
+        "Due diligence"
+      ],
+      "content": "PLACEHOLDER: Add your risk management content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 7,
+      "title": "Market Entry Strategies",
+      "description": "Expanding into new markets",
+      "keyTopics": [
+        "Market research",
+        "Entry modes",
+        "Partner selection",
+        "Regulatory considerations"
+      ],
+      "content": "PLACEHOLDER: Add your market entry content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 8,
+      "title": "Supply Chain Optimization",
+      "description": "Efficiency and cost reduction",
+      "keyTopics": [
+        "Supply chain analysis",
+        "Cost optimization",
+        "Technology in supply chain",
+        "Sustainability"
+      ],
+      "content": "PLACEHOLDER: Add your supply chain content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 9,
+      "title": "Digital Trade",
+      "description": "E-commerce and technology",
+      "keyTopics": [
+        "E-commerce platforms",
+        "Digital payments",
+        "Cross-border e-commerce",
+        "Technology trends"
+      ],
+      "content": "PLACEHOLDER: Add your digital trade content",
+      "examples": [],
+      "faqs": []
+    },
+    {
+      "id": 10,
+      "title": "Sustainability in Trade",
+      "description": "Environmental and social responsibility",
+      "keyTopics": [
+        "Green trade practices",
+        "ESG considerations",
+        "Circular economy",
+        "Sustainable sourcing"
+      ],
+      "content": "PLACEHOLDER: Add your sustainability content",
+      "examples": [],
+      "faqs": []
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Incoterms",
+      "definition": "International Commercial Terms published by the ICC that define responsibilities between buyers and sellers in international trade."
+    },
+    {
+      "term": "FOB",
+      "definition": "Free On Board - seller delivers goods on board vessel at origin port, buyer assumes costs/risks from that point."
+    },
+    {
+      "term": "CIF",
+      "definition": "Cost, Insurance, and Freight - seller pays shipping and insurance to destination port, buyer takes over from there."
+    },
+    {
+      "term": "EXW",
+      "definition": "Ex Works - seller makes goods available at their premises, buyer handles all transport and costs."
+    },
+    {
+      "term": "DDP",
+      "definition": "Delivered Duty Paid - seller handles all costs and risks including customs duties until delivery to buyer."
+    }
+  ],
+  "generalFAQs": [
+    {
+      "question": "How long does it take to complete the course?",
+      "answer": "PLACEHOLDER: Add answer"
+    },
+    {
+      "question": "What certifications will I receive?",
+      "answer": "PLACEHOLDER: Add answer"
+    }
+  ]
+}
